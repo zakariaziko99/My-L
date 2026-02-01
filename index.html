@@ -48,6 +48,7 @@
         margin: 15px;
         transition: all 0.3s ease;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        position: relative;
     }
 
     #yes {
@@ -98,12 +99,13 @@
     </p>
 
     <button id="yes" onclick="yesClicked()">YES 💖</button>
-    <button id="no">Not just yet 🙈</button>
+    <button id="no">not for the moment 🙈</button>
 </div>
 
 <script>
     const noBtn = document.getElementById("no");
 
+    // Make the "Not just yet" button move randomly
     function moveNo() {
         const x = Math.random() * (window.innerWidth - 160);
         const y = Math.random() * (window.innerHeight - 80);
@@ -111,30 +113,34 @@
         noBtn.style.top = y + "px";
     }
 
-    // Move button when hovered
+    // Move on hover
     noBtn.addEventListener("mouseover", moveNo);
 
-    // Also move if clicked
-    noBtn.addEventListener("click", function (e) {
+    // Move on click too
+    noBtn.addEventListener("click", function(e) {
         e.preventDefault();
         moveNo();
     });
 
+    // YES button clicked
     function yesClicked() {
         document.body.innerHTML = `
             <div class="box">
                 <h1>💖 Thank you, Laila 💖</h1>
                 <p>
-                    My heart is dancing with joy ❤️  
+                    I want you to know something important ❤️  
                     <br><br>
-                    I’m so happy to have you by my side 🌸  
+                    I have loved you since the moment I met you 🌸  
                     <br><br>
-                    Let’s begin this beautiful journey together 💞
+                    Having you by my side makes me the happiest person in the world 💞  
+                    <br><br>
+                    Let’s start this beautiful journey together 💖
                 </p>
             </div>
         `;
     }
 
+    // Floating hearts
     setInterval(() => {
         const heart = document.createElement("div");
         heart.className = "heart";
