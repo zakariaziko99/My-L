@@ -18,33 +18,35 @@
 
     .box {
         background: rgba(255,255,255,0.95);
-        padding: 45px;
+        padding: 50px 40px;
         border-radius: 30px;
         text-align: center;
         box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        max-width: 450px;
+        max-width: 480px;
         position: relative;
     }
 
     h1 {
         color: #d63384;
-        font-size: 34px;
+        font-size: 36px;
+        margin-bottom: 20px;
     }
 
     p {
         font-size: 18px;
         color: #444;
-        line-height: 1.6;
+        line-height: 1.7;
+        margin-bottom: 30px;
     }
 
     button {
-        padding: 15px 40px;
+        padding: 15px 45px;
         font-size: 18px;
         border: none;
         border-radius: 30px;
         cursor: pointer;
-        margin: 20px;
-        transition: 0.3s;
+        margin: 15px;
+        transition: all 0.3s ease;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
@@ -65,7 +67,7 @@
 
     .heart {
         position: absolute;
-        font-size: 22px;
+        font-size: 24px;
         color: rgba(255, 0, 100, 0.6);
         animation: float 5s linear infinite;
     }
@@ -82,15 +84,21 @@
 <div class="box">
     <h1>Laila 💖</h1>
     <p>
-        From the moment you entered my life,  
-        everything felt warmer and brighter ✨  
+        Since you came into my life,  
+        every moment has felt brighter ✨  
         <br><br>
-        Will you be <strong>my babe</strong>  
-        and stay by my side? 💞
+        Your smile, your kindness,  
+        and simply your presence  
+        make my world more beautiful 💕  
+        <br><br>
+        So here I am, with all my heart 💫  
+        <br><br>
+        Will you be <strong>my other half</strong>  
+        and walk by my side forever? 💞
     </p>
 
     <button id="yes" onclick="yesClicked()">YES 💖</button>
-    <button id="no">Pas pour l’instant 🙈</button>
+    <button id="no">Not just yet 🙈</button>
 </div>
 
 <script>
@@ -103,10 +111,10 @@
         noBtn.style.top = y + "px";
     }
 
-    // Bouge au survol
+    // Move button when hovered
     noBtn.addEventListener("mouseover", moveNo);
 
-    // Bouge aussi au clic (impossible à cliquer)
+    // Also move if clicked
     noBtn.addEventListener("click", function (e) {
         e.preventDefault();
         moveNo();
@@ -117,9 +125,11 @@
             <div class="box">
                 <h1>💖 Thank you, Laila 💖</h1>
                 <p>
-                    This means more to me than words ❤️  
+                    My heart is dancing with joy ❤️  
                     <br><br>
-                    I’m really happy to have you here 🌸
+                    I’m so happy to have you by my side 🌸  
+                    <br><br>
+                    Let’s begin this beautiful journey together 💞
                 </p>
             </div>
         `;
