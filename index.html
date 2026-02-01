@@ -17,23 +17,26 @@
     }
 
     .box {
-        background: rgba(255,255,255,0.92);
-        padding: 40px;
-        border-radius: 25px;
+        background: rgba(255,255,255,0.95);
+        padding: 50px 40px;
+        border-radius: 30px;
         text-align: center;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-        max-width: 420px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        max-width: 450px;
+        position: relative;
     }
 
     h1 {
         color: #d63384;
-        font-size: 32px;
+        font-size: 34px;
+        margin-bottom: 20px;
     }
 
     p {
         font-size: 18px;
         color: #444;
         line-height: 1.6;
+        margin-bottom: 30px;
     }
 
     button {
@@ -42,8 +45,9 @@
         border: none;
         border-radius: 30px;
         cursor: pointer;
-        margin: 20px 15px;
-        transition: 0.3s;
+        margin: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     #yes {
@@ -56,14 +60,18 @@
     }
 
     #no {
-        background: #adb5bd;
+        background: #6c757d;
         color: white;
         position: absolute;
     }
 
+    #no:hover {
+        transform: scale(1.1);
+    }
+
     .heart {
         position: absolute;
-        font-size: 22px;
+        font-size: 24px;
         color: rgba(255, 0, 100, 0.6);
         animation: float 5s linear infinite;
     }
@@ -95,13 +103,13 @@
     </p>
 
     <button id="yes" onclick="yesClicked()">YES 💖</button>
-    <button id="no" onmouseover="moveNo()">NO 🙈</button>
+    <button id="no" onmouseover="moveNo()">Pas pour l’instant 🙈</button>
 </div>
 
 <script>
     function moveNo() {
         const noBtn = document.getElementById("no");
-        const x = Math.random() * (window.innerWidth - 140);
+        const x = Math.random() * (window.innerWidth - 160);
         const y = Math.random() * (window.innerHeight - 80);
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
