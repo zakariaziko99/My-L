@@ -18,7 +18,7 @@
 
     .box {
         background: rgba(255,255,255,0.95);
-        padding: 50px 40px;
+        padding: 45px;
         border-radius: 30px;
         text-align: center;
         box-shadow: 0 20px 40px rgba(0,0,0,0.25);
@@ -29,14 +29,12 @@
     h1 {
         color: #d63384;
         font-size: 34px;
-        margin-bottom: 20px;
     }
 
     p {
         font-size: 18px;
         color: #444;
         line-height: 1.6;
-        margin-bottom: 30px;
     }
 
     button {
@@ -45,8 +43,8 @@
         border: none;
         border-radius: 30px;
         cursor: pointer;
-        margin: 15px;
-        transition: all 0.3s ease;
+        margin: 20px;
+        transition: 0.3s;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
@@ -65,13 +63,9 @@
         position: absolute;
     }
 
-    #no:hover {
-        transform: scale(1.1);
-    }
-
     .heart {
         position: absolute;
-        font-size: 24px;
+        font-size: 22px;
         color: rgba(255, 0, 100, 0.6);
         animation: float 5s linear infinite;
     }
@@ -91,41 +85,41 @@
         From the moment you entered my life,  
         everything felt warmer and brighter ✨  
         <br><br>
-        Your smile, your kindness,  
-        and the way you exist  
-        mean more to me than you know 💕  
-        <br><br>
-        So I just want to ask you something simple…  
-        but very real 💫  
-        <br><br>
         Will you be <strong>my babe</strong>  
         and stay by my side? 💞
     </p>
 
     <button id="yes" onclick="yesClicked()">YES 💖</button>
-    <button id="no" onmouseover="moveNo()">Pas pour l’instant 🙈</button>
+    <button id="no">Pas pour l’instant 🙈</button>
 </div>
 
 <script>
+    const noBtn = document.getElementById("no");
+
     function moveNo() {
-        const noBtn = document.getElementById("no");
         const x = Math.random() * (window.innerWidth - 160);
         const y = Math.random() * (window.innerHeight - 80);
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
     }
 
+    // Bouge au survol
+    noBtn.addEventListener("mouseover", moveNo);
+
+    // Bouge aussi au clic (impossible à cliquer)
+    noBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        moveNo();
+    });
+
     function yesClicked() {
         document.body.innerHTML = `
             <div class="box">
                 <h1>💖 Thank you, Laila 💖</h1>
                 <p>
-                    This means more to me than words can say ❤️  
+                    This means more to me than words ❤️  
                     <br><br>
-                    I’m really happy  
-                    to have you here with me 🌸  
-                    <br><br>
-                    Let’s enjoy this beautiful journey together 💞
+                    I’m really happy to have you here 🌸
                 </p>
             </div>
         `;
