@@ -5,91 +5,157 @@
 <title>For Laila 💖</title>
 
 <style>
-    body {
-        height: 100vh;
-        margin: 0;
-        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Segoe UI', sans-serif;
-        overflow: hidden;
-    }
+body {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
 
-    .box {
-        background: rgba(255,255,255,0.95);
-        padding: 50px 40px;
-        border-radius: 30px;
-        text-align: center;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        max-width: 480px;
-        position: relative;
-    }
+.box {
+    background: rgba(255,255,255,0.95);
+    padding: 50px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    max-width: 480px;
+    position: relative;
+}
 
-    .photo {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-bottom: 20px;
-        border: 4px solid #ff4d6d;
-    }
+.photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid #ff4d6d;
+}
 
-    h1 {
-        color: #d63384;
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
+h1 {
+    color: #d63384;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
 
-    p {
-        font-size: 18px;
-        color: #444;
-        line-height: 1.7;
-        margin-bottom: 30px;
-    }
+p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
 
-    button {
-        padding: 15px 45px;
-        font-size: 18px;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        margin: 15px;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        position: relative;
-    }
+button {
+    padding: 15px 45px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
 
-    #yes {
-        background: #ff4d6d;
-        color: white;
-    }
+#yes {
+    background: #ff4d6d;
+    color: white;
+}
 
-    #yes:hover {
-        transform: scale(1.15);
-    }
+#yes:hover {
+    transform: scale(1.15);
+}
 
-    #no {
-        background: #6c757d;
-        color: white;
-        position: absolute;
-    }
+#no {
+    background: #6c757d;
+    color: white;
+    position: absolute;
+}
 
-    .heart {
-        position: absolute;
-        font-size: 24px;
-        color: rgba(255, 0, 100, 0.6);
-        animation: float 5s linear infinite;
-    }
+.heart {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(255, 0, 100, 0.6);
+    animation: float 5s linear infinite;
+}
 
-    @keyframes float {
-        0% { transform: translateY(0); opacity: 1; }
-        100% { transform: translateY(-900px); opacity: 0; }
-    }
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-900px); opacity: 0; }
+}
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <!-- Photo depui
+<div class="box" id="mainBox">
+    <img src="laila.JPG" alt="Laila" class="photo">
+    <h1>Laila 💖</h1>
+    <p>
+        Since you came into my life,  
+        every moment has felt brighter ✨  
+        <br><br>
+        Your smile, your kindness,  
+        and simply your presence  
+        make my world more beautiful 💕  
+        <br><br>
+        So here I am, with all my heart 💫  
+        <br><br>
+        Will you be <strong>my other half</strong>  
+        and walk by my side forever? 💞
+    </p>
+
+    <button id="yes">YES 💖</button>
+    <button id="no">Not just yet 🙈</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const mainBox = document.getElementById("mainBox");
+
+// Déplacer le bouton "Not just yet"
+function moveNo() {
+    const x = Math.random() * (window.innerWidth - 160);
+    const y = Math.random() * (window.innerHeight - 80);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+// Déplacement au survol et au clic
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", function(e) { e.preventDefault(); moveNo(); });
+
+// Quand elle clique sur YES
+yesBtn.addEventListener("click", function() {
+    mainBox.innerHTML = `
+        <h1>💖 Thank you, Laila 💖</h1>
+        <p>
+            I want you to know something important ❤️  
+            <br><br>
+            I have loved you since the moment I met you 🌸  
+            <br><br>
+            Having you by my side makes me the happiest person in the world 💞  
+            <br><br>
+            Let’s start this beautiful journey together 💖
+        </p>
+    `;
+});
+
+// Animation des cœurs
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.bottom = "0px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
